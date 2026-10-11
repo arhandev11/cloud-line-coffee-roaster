@@ -6,7 +6,7 @@ export default function Bar({ lang }: { lang: Lang }) {
 
   return (
     <section id="bar" className="border-t-2 border-ink px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <div className="grid grid-cols-6 grid-rows-[auto_auto] gap-4">
           <img
             src="/photos/pour-over.webp"

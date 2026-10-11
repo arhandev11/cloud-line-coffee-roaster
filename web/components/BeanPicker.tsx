@@ -53,13 +53,13 @@ export default function BeanPicker({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)_minmax(0,1fr)] lg:gap-0">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)_minmax(0,1fr)] lg:gap-0">
       {/* The list of beans: chips that scroll sideways on small screens, a column of names on large ones. */}
       <div
         role="tablist"
         aria-label={t.title}
         onKeyDown={onKeyDown}
-        className="shelf -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0 lg:pb-0"
+        className="shelf -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:col-span-2 lg:col-span-1 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0 lg:pb-0"
       >
         {BEANS.map((b, i) => {
           const selected = i === index;
@@ -103,7 +103,7 @@ export default function BeanPicker({ lang }: { lang: Lang }) {
         {/* The printed bag label, in this bean's own colours. */}
         <div key={`label-${bean.slug}`} className="bean-swap lg:pr-10">
           <div
-            className="flex aspect-[4/3] flex-col rounded-[4px] border-2 border-ink p-6 text-white sm:aspect-[5/4] lg:aspect-[4/5]"
+            className="flex aspect-[4/3] flex-col rounded-[4px] border-2 border-ink p-6 text-white sm:aspect-[5/4] md:aspect-[4/5]"
             style={{ background: bean.label }}
           >
             <span
@@ -115,7 +115,7 @@ export default function BeanPicker({ lang }: { lang: Lang }) {
             </span>
             <p
               aria-hidden="true"
-              className={`display text-[clamp(2.5rem,5vw,4rem)] [text-wrap:balance] ${
+              className={`display text-[clamp(2.25rem,4.5vw,4rem)] [text-wrap:balance] ${
                 bean.nameAlign === "center" ? "my-auto text-center" : "mt-auto"
               }`}
               style={{ fontVariationSettings: '"wdth" 100' }}

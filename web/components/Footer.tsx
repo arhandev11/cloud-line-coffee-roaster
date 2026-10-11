@@ -6,7 +6,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   return (
     <footer className="border-t-2 border-ink bg-cloud px-4 pb-10 pt-16 sm:px-6">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
         <img
           src="/logo/lockup.webp"
           alt={`Cloudline Coffee Roasters. ${t.footer.tagline}`}
@@ -18,7 +18,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
         <div className="space-y-5 text-base">
           <p>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-block py-2 underline underline-offset-4">
               {ADDRESS}
             </a>
           </p>
@@ -28,7 +28,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             {t.bar.weekends} 07.00–21.00
           </p>
           <p>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-block py-2 font-semibold underline underline-offset-4">
               @{INSTAGRAM_HANDLE}
             </a>
           </p>

@@ -6,7 +6,7 @@ export default function Roastery({ lang }: { lang: Lang }) {
 
   return (
     <section id="roastery" className="bg-ink px-4 py-20 text-cloud sm:px-6 sm:py-28">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
         <div className="flex flex-col">
           <h2 lang="en" className="display max-w-[12ch] text-[clamp(2.75rem,6.5vw,5.5rem)] text-cloud">
             {t.title}
@@ -16,9 +16,9 @@ export default function Roastery({ lang }: { lang: Lang }) {
               <p key={p}>{p}</p>
             ))}
           </div>
-          <div className="mt-auto flex items-center gap-6 pt-12 text-marigold">
+          <div className="mt-auto flex items-center gap-4 pt-12 text-marigold sm:gap-6">
             <ChampionBadge title={t.award} year={t.awardYear} />
-            <p className="max-w-[18ch] text-xl font-semibold leading-snug">
+            <p className="min-w-0 max-w-[18ch] text-lg font-semibold leading-snug sm:text-xl">
               {t.award}, {t.awardYear}
             </p>
           </div>

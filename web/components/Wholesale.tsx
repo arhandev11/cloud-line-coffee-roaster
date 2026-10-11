@@ -6,7 +6,7 @@ export default function Wholesale({ lang }: { lang: Lang }) {
 
   return (
     <section id="wholesale" className="bg-marigold px-4 py-20 sm:px-6 sm:py-24">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>
           <h2 className="display text-[clamp(2.75rem,6.5vw,5.5rem)]">{t.title}</h2>
           <p className="mt-6 max-w-[50ch] text-lg">{t.body}</p>

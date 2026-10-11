@@ -2,7 +2,7 @@
 export default function ChampionBadge({ title, year }: { title: string; year: string }) {
   const ring = `${title.toUpperCase()} ${year} • ${title.toUpperCase()} ${year} • `;
   return (
-    <svg viewBox="0 0 200 200" className="size-40 shrink-0 sm:size-48" aria-hidden="true">
+    <svg viewBox="0 0 200 200" className="size-28 shrink-0 sm:size-40 lg:size-48" aria-hidden="true">
       <defs>
         <path id="badge-ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
       </defs>

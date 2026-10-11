@@ -20,7 +20,7 @@ export default function Nav({ lang }: { lang: Lang }) {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6">
-        <a href={HOME_PATH[lang]} aria-label="Cloudline Coffee Roasters" className="shrink-0">
+        <a href={HOME_PATH[lang]} aria-label="Cloudline Coffee Roasters" className="shrink-0 py-1">
           <Wordmark />
         </a>
 
@@ -40,13 +40,13 @@ export default function Nav({ lang }: { lang: Lang }) {
             hrefLang={other}
             lang={other}
             aria-label={t.switchTo}
-            className="grid h-10 min-w-10 place-items-center rounded-full border-2 border-ink px-2 text-sm font-semibold hover:bg-ink hover:text-paper"
+            className="grid h-11 min-w-11 place-items-center rounded-full border-2 border-ink px-2 text-sm font-semibold hover:bg-ink hover:text-paper"
           >
             {t.switchShort}
           </a>
           <button
             type="button"
-            className="h-10 rounded-full border-2 border-ink bg-ink px-4 text-sm font-semibold text-paper lg:hidden"
+            className="h-11 rounded-full border-2 border-ink bg-ink px-4 text-sm font-semibold text-paper lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
