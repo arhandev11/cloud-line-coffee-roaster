@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/*
+ * Palette comes straight from the brand: ink, sky and cloud are sampled from the
+ * mascot artwork, paper and marigold from the Public Cupping poster.
+ * Gradients are reserved for coffee — each bean's label colour lives in lib/beans.ts.
+ */
+@theme {
+  --color-paper: #cbcdce;
+  --color-ink: #193458;
+  --color-ink-deep: #11253f;
+  --color-sky: #9eb7d0;
+  --color-cloud: #dfdbd3;
+  --color-pouch: #f6f6f3;
+  --color-marigold: #f5a21b;
+
+  --font-display: var(--font-archivo), "Arial Black", sans-serif;
+  --font-sans: var(--font-lexend), system-ui, sans-serif;
+
+  --ease-roll: cubic-bezier(0.22, 0.9, 0.3, 1.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Speckled paper, like the poster stock. Sits above backgrounds, below nothing interactive. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .2 0 0 0 0 .35 0 0 0 1.6 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-marigold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marigold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Display type. Archivo at full weight, set tight like the event posters. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: "wdth" 108;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+/* Hero words sit tighter: one line each, so descenders have nothing to collide with. */
+.display.hero-word {
+  line-height: 0.84;
+  font-size: clamp(2.5rem, 13vw, 11.5rem);
+}
+
+/* Sized so the whole poster — word, mascot, word — fits one screen on desktop. */
+.hero-stage {
+  width: min(100%, 56rem, max(24rem, calc((100svh - 27rem) * 1.365)));
+}
+
+/* The giant hero words: marigold filled, outlined in ink the way the mascot is drawn. */
+.outlined {
+  color: var(--color-marigold);
+  -webkit-text-stroke: 0.035em var(--color-ink);
+  paint-order: stroke fill;
+}
+
+/* Bubble letters roll in from the left on load, each turning as far as its own
+   circumference says it should (--dx and --turn are set per letter). */
+@keyframes roll-in {
+  from {
+    translate: calc(var(--dx) * -1cqw) 0;
+    rotate: calc(var(--turn) * -1turn);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  to {
+    translate: 0 0;
+    rotate: 0turn;
+    opacity: 1;
+  }
+}
+
+.roll-in {
+  animation: roll-in 1.25s var(--ease-roll) both;
+  animation-delay: calc(var(--i) * 85ms + 150ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .roll-in {
+    animation: none;
+  }
+}
+
+/* Bean shelf scrolls sideways on smaller screens; keep the scrollbar thin and on-brand. */
+.shelf {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink) transparent;
+}
