@@ -107,16 +107,29 @@ body::after {
   animation-delay: calc(var(--i) * 85ms + 150ms);
 }
 
+/* Picking another bean swaps the label and notes in with a short lift. */
+@keyframes bean-swap {
+  from {
+    opacity: 0;
+    translate: 0 0.75rem;
+  }
+}
+
+.bean-swap {
+  animation: bean-swap 0.32s var(--ease-roll);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .roll-in {
+  .roll-in,
+  .bean-swap {
     animation: none;
   }
 }
 
-/* Bean shelf scrolls sideways on smaller screens; keep the scrollbar thin and on-brand. */
+/* The bean chips scroll sideways on smaller screens; keep the scrollbar thin and on-brand. */
 .shelf {
   scrollbar-width: thin;
   scrollbar-color: var(--color-ink) transparent;
